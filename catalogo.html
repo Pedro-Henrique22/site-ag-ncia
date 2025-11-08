@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CATÁLOGOS DE CARROS</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="imagens/Logo_volante.png" type="image/x-icon">
+
+  <style>
+    /* Garante que nada ultrapasse a tela */
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Menu fixo na base atual */
+    .navbar-custom {
+      background-color: rgb(8, 7, 4);
+      padding: 10px 0;
+      width: 100%;
+    }
+
+    .navbar-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .tamanhoicone img {
+      width: 100px;
+      height: auto;
+    }
+
+    .menu-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex: 1;
+      text-align: center;
+    }
+
+    .menu-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .menu-links a:hover {
+      color: #b8b8b8;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .search-bar input {
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
+
+    .buttonpesquisa {
+      background-color: #555;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .buttonpesquisa:hover {
+      background-color: #777;
+    }
+
+    /* Layout geral */
+    main.container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    /* Filtros */
+    .filtros {
+      flex: 1 1 200px;
+      background-color: #f4f4f4;
+      padding: 15px;
+      border-radius: 10px;
+      min-width: 200px;
+    }
+
+    .filtros h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .filtros ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .filtros li {
+      margin: 8px 0;
+    }
+
+    /* Catálogo */
+    .catalogo {
+      flex: 3 1 600px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .car-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .car-card:hover {
+      transform: scale(1.03);
+    }
+
+    .car-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .btn-comprar {
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn-comprar:hover {
+      background-color: #333;
+    }
+
+    footer {
+      background-color: rgb(8, 7, 4);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    /* 🔹 Responsividade para telas menores */
+    @media (max-width: 992px) {
+      .navbar-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .menu-links {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .search-bar {
+        width: 100%;
+        justify-content: center;
+      }
+
+      main.container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .filtros {
+        width: 90%;
+        margin-bottom: 20px;
+      }
+
+      .catalogo {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .tamanhoicone img {
+        width: 80px;
+      }
+
+      .menu-links a {
+        font-size: 14px;
+      }
+
+      .search-bar input {
+        width: 150px;
+      }
+
+      .buttonpesquisa {
+        padding: 5px 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid" style="background-color: rgb(8, 7, 4)">
+    <!-- MENU -->
+    <header class="navbar-custom">
+      <div class="navbar-container">
+        <div class="tamanhoicone">
+          <img src="imagens/Logo_prata.png" alt="Logo" class="tamanhoimgicone">
+        </div>
+
+        <nav class="menu-links">
+          <a href="index.html">HOME</a>
+          <a href="catalogo.html">CATÁLOGO</a>
+          <a href="contato.html">CONTATO</a>
+        </nav>
+
+        <form class="search-bar">
+          <input type="text" placeholder="Pesquisar..." aria-label="Pesquisar">
+          <button class="buttonpesquisa" type="submit">Buscar</button>
+        </form>
+      </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="container">
+      <aside class="filtros">
+        <h2>Filtrar por Marca</h2>
+        <ul>
+          <li><input type="checkbox" id="volvo"><label for="volvo"> Volvo</label></li>
+          <li><input type="checkbox" id="mercedes"><label for="mercedes"> Mercedes</label></li>
+          <li><input type="checkbox" id="jaguar"><label for="jaguar"> Jaguar</label></li>
+          <li><input type="checkbox" id="bmw"><label for="bmw"> BMW</label></li>
+          <li><input type="checkbox" id="civic"><label for="civic"> Civic</label></li>
+          <li><input type="checkbox" id="landrover"><label for="landrover"> Land Rover</label></li>
+        </ul>
+      </aside>
+
+      <section class="catalogo">
+        <div class="car-card">
+          <img src="imagens/card 10 carro BMW X1.png" alt="BMW X1">
+          <h3>Bmw X1</h3>
+          <p class="preco">R$ $$$</p>
+          <p class="parcelas">ou $$ de R$ $$$$</p>
+          <button class="btn-comprar">Ver Detalhes</button>
+        </div>
+
+        <div class="car-card">
+          <img src="imagens/card 9 carro Volvo XC60.png" alt="VOLVO XC60">
+          <h3>Volvo XC60</h3>
+          <p class="preco">R$ $$$</p>
+          <p class="parcelas">ou $$$ de R$ $$$$</p>
+          <button class="btn-comprar">Ver Detalhes</button>
+        </div>
+
+        <div class="car-card">
+          <img src="imagens/card 7 carro Mercedes C 200.png" alt="MERCEDES C200">
+          <h3>Mercedes C200</h3>
+          <p class="preco">R$ $$$$</p>
+          <p class="parcelas">ou $$ de R$ $$$$</p>
+          <button class="btn-comprar">Ver Detalhes</button>
+        </div>
+
+        <div class="car-card">
+          <img src="imagens/card carro 5 land rouver.png" alt="Land Rover">
+          <h3>Land Rover</h3>
+          <p class="preco">R$ $$$$</p>
+          <p class="parcelas">ou $$ de R$ $$$$</p>
+          <button class="btn-comprar">Ver Detalhes</button>
+        </div>
+
+        <div class="car-card">
+          <img src="imagens/card carro 3 audi a5 editado.png" alt="Audi A5">
+          <h3>Audi A5</h3>
+          <p class="preco">R$ $$$$</p>
+          <p class="parcelas">ou $$ de R$ $$$$</p>
+          <button class="btn-comprar">Ver Detalhes</button>
+        </div>
+
+        <div class="car-card">
+          <img src="imagens/card 8 carro  jaguar.png" alt="Jaguar">
+          <h3>Jaguar</h3>
+          <p class="preco">R$ $$$$</p>
+          <p class="parcelas">ou $$ de R$ $$$$</p>
+          <button class="btn-comprar">Ver Detalhes</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 LUXURY CAR | VINICIUS - CARLOS - RAFAEL - PEDRO</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>LUXURY CAR - Formulário de Compra</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="imagens/Logo_volante.png" type="image/x-icon">
+
+  <style>
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Menu */
+    .navbar-custom {
+      background-color: rgb(8, 7, 4);
+      padding: 10px 0;
+      width: 100%;
+    }
+
+    .navbar-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .tamanhoicone img {
+      width: 100px;
+      height: auto;
+    }
+
+    .menu-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex: 1;
+      text-align: center;
+    }
+
+    .menu-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .menu-links a:hover {
+      color: #b8b8b8;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .search-bar input {
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
+
+    .buttonpesquisa {
+      background-color: #555;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .buttonpesquisa:hover {
+      background-color: #777;
+    }
+
+    /* Formulário */
+    .form-container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 28px;
+    }
+
+    .form-control, .form-select {
+      border-radius: 5px;
+    }
+
+    .btn-dark {
+      border-radius: 5px;
+      padding: 10px 15px;
+    }
+
+    footer {
+      background-color: rgb(8, 7, 4);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 992px) {
+      .navbar-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .menu-links {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .search-bar {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .form-container {
+        width: 90%;
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .tamanhoicone img {
+        width: 80px;
+      }
+
+      .menu-links a {
+        font-size: 14px;
+      }
+
+      .search-bar input {
+        width: 150px;
+      }
+
+      .buttonpesquisa {
+        padding: 5px 8px;
+      }
+
+      .form-container h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid" style="background-color: rgb(8, 7, 4)">
+    <!-- MENU -->
+    <header class="navbar-custom">
+      <div class="navbar-container">
+        <div class="tamanhoicone">
+          <img src="imagens/Logo_prata.png" alt="Logo" class="tamanhoimgicone">
+        </div>
+
+        <nav class="menu-links">
+          <a href="index.html">HOME</a>
+          <a href="catalogo.html">CATÁLOGO</a>
+          <a href="contato.html">CONTATO</a>
+        </nav>
+
+        <form class="search-bar">
+          <input type="text" placeholder="Pesquisar..." aria-label="Pesquisar">
+          <button class="buttonpesquisa" type="submit">Buscar</button>
+        </form>
+      </div>
+    </header>
+
+    <!-- FORMULÁRIO -->
+    <div class="form-container">
+      <h2>Solicite seu carro dos sonhos</h2>
+      <form>
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome completo</label>
+          <input type="text" class="form-control" id="nome" placeholder="Seu nome">
+        </div>
+        <div class="mb-3">
+          <label for="telefone" class="form-label">Telefone</label>
+          <input type="tel" class="form-control" id="telefone" placeholder="(99) 99999-9999">
+        </div>
+        <div class="mb-3">
+          <label for="modelo" class="form-label">Modelo do carro</label>
+          <select class="form-select" id="modelo">
+            <option selected>Escolha um modelo</option>
+            <option value="bmw">BMW Série 3</option>
+            <option value="audi">Audi A5</option>
+            <option value="mercedes">Mercedes-Benz C200</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="ano" class="form-label">Ano do carro</label>
+          <input type="number" class="form-control" id="ano" min="2000" max="2025">
+        </div>
+        <div class="mb-3">
+          <label for="pagamento" class="form-label">Forma de pagamento</label>
+          <select class="form-select" id="pagamento">
+            <option selected>Escolha uma opção</option>
+            <option value="avista">À vista</option>
+            <option value="financiamento">Financiamento</option>
+            <option value="consorcio">Consórcio</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="cor" class="form-label">Cor preferida</label>
+          <input type="text" class="form-control" id="cor" placeholder="Ex: Preto, Branco, Vermelho">
+        </div>
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" id="testdrive">
+          <label class="form-check-label" for="testdrive">Deseja agendar um test drive?</label>
+        </div>
+        <button type="submit" class="btn btn-dark w-100">Enviar solicitação</button>
+      </form>
+    </div>
+
+    <footer>
+      <p>© 2025 LUXURY CAR | VINICIUS - CARLOS - RAFAEL - PEDRO</p>
+    </footer>
+  </div>
+</body>
+</html>
